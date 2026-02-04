@@ -1,0 +1,43 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+
+# Node / Angular
+node_modules/
+dist/
+.angular/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Java / Spring Boot
+target/
+build/
+.gradle/
+.settings/
+.classpath
+.project
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+logs/
+
+# Secrets
+.env
+.env.*
+
+# Agentic tool files
+.agent/
+.gemini/
+brain/
