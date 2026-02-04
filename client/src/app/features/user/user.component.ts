@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { UserService } from '../../core/services/user.service';
 import { User } from '../../core/models/user.models';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-user',
@@ -19,22 +20,32 @@ import { User } from '../../core/models/user.models';
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule
   ],
   template: `
     <div class="user-container">
       <mat-card>
+
         <mat-card-header>
-          <mat-card-title>Usuarios</mat-card-title>
+          <mat-card-title>
+            <p class="title">
+              Usuarios            
+            </p>              
+          </mat-card-title>
         </mat-card-header>
+
+        <mat-divider></mat-divider>
         
         <mat-card-content>
+        
+        <div class="container-filter">
           <mat-form-field appearance="outline" class="filter-field">
             <mat-label>Buscar</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Search by name, email, city..." #input>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Buscar por nombre, correo, ciudad..." #input>
           </mat-form-field>
-
-          <div class="table-container mat-elevation-z8">
+</div>
+          <div class="table-container">
             <table mat-table [dataSource]="dataSource" matSort>
               <!-- Name Column -->
               <ng-container matColumnDef="name">
@@ -81,7 +92,7 @@ import { User } from '../../core/models/user.models';
       padding: 20px;
     }
     .filter-field {
-      width: 100%;
+      width: 30%;
       margin-bottom: 20px;
     }
     .table-container {
@@ -93,8 +104,25 @@ import { User } from '../../core/models/user.models';
     .mat-column-id {
       width: 60px;
     }
+    .container-filter {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .mat-mdc-card {
+      border-radius: 12px;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 1rem;
+      margin-bottom: 1rem;      
+    }
+    
   `]
 })
+
 export class UserComponent implements OnInit {
   private userService = inject(UserService);
 

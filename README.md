@@ -67,3 +67,27 @@ Puedes explorar y probar los endpoints directamente desde el Swagger UI una vez 
 - **Application**: Representa una aplicación de software.
 - **Version**: Representa una versión específica de una aplicación.
 - **VersionCompany**: Gestiona la relación entre versiones de aplicaciones y empresas.
+
+## Esquema de Base de Datos
+
+A continuación se muestra el diagrama de entidad-relación (ERD) que detalla las tablas y sus relaciones:
+
+![Esquema de Base de Datos](docs/images/database_schema.png)
+
+## Generación de Nombres de Compañía
+
+Para el poblamiento inicial de datos (`DataInitializer`), se implementó un algoritmo de generación de nombres aleatorios diseñado para simular nombres de empresas coherentes.
+
+### Construcción del Algoritmo
+
+1.  **Arreglo de Caracteres**: Se utiliza un conjunto predefinido de letras (como `w, e, r, f, b, ...`) extraídas de una cadena base, eliminando espacios en blanco para asegurar una selección de caracteres válida.
+2.  **Selección Aleatoria**: Se genera una cadena de longitud variable (entre 5 y 10 caracteres) seleccionando posiciones al azar dentro del arreglo de caracteres.
+3.  **Estandarización vía Expresiones Regulares**:
+    Para garantizar que los nombres generados tengan un formato profesional, se aplica la siguiente expresión regular:
+    `^([a-z])(.*)$`
+    
+    *   **Funcionamiento**: El patrón captura el primer carácter en el grupo 1 y el resto de la cadena en el grupo 2.
+    *   **Transformación**: Se convierte el grupo 1 a mayúscula (`toUpperCase()`) y el grupo 2 a minúscula (`toLowerCase()`).
+4.  **Sufijo Corporativo**: Finalmente, se concatena el sufijo `" S.A.S"` para completar la identidad de la empresa.
+
+Este enfoque permite que, a pesar de la aleatoriedad de los caracteres, los nombres resultantes sigan una estructura visual coherente y profesional.
