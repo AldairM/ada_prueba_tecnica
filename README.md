@@ -61,6 +61,10 @@ La API sigue los principios REST y utiliza OpenAPI 3.0 para la documentación.
 
 Puedes explorar y probar los endpoints directamente desde el Swagger UI una vez que el backend esté en ejecución.
 
+## Documentación Adicional
+
+- [Prueba Desarrollador Angular Teorica (PDF)](docs/prueba_desarrollador_angular_teorica.pdf)
+
 ## Entidades Principales
 
 - **Company**: Representa una empresa.
